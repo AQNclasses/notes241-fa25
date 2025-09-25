@@ -18,3 +18,14 @@
 - Java compiler
 - Makefiles
 - Unit tests
+
+# Workflow demonstration
+
+- ADVERTISE TUTORING CENTER
+- WSL vs. native Linx vs. development in Windows
+- Accepting github assignment
+- Using makefile from the command line
+- Git interactions from the command line
+- Using makefile from VSCode?
+- Hello world and Java syntax refresh
+- Quiz in last 20 minutes of class
