@@ -7,9 +7,11 @@ There will be a coding component in the midterm. You will have access to VSCode
 (without CoPilot) and Eclipse for text editors. Send me requests for other text
 editors ASAP.
 
-If you plan to take exam in the DAC, contact me to
+If you plan to take exam in the DAC, contact me to schedule a time to complete your coding portion (the DAC cannot support our coding environment). You will complete the coding portion in my office.
 
 We will hold an in-class review session on Friday, October 31. Bring questions.
+
+You are allowed a note sheet: you may type or hand-write notes on one side of an 8.5"x11" piece of paper.
 
 # Full topic list
 
