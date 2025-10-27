@@ -9,6 +9,11 @@ sorted array?
 - merge sort
 - quicksort
 
+Quicksort partitioning schemes:
+
+- Hoare
+
+
 Java details:
 - `implements Comparable` required
 - What about objects with multiple fields?
