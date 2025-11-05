@@ -109,7 +109,7 @@ This process is called "percolating" / "bubbling" / "sifting" / "heapify-ing"
 
 ## Removing elements
 
-1. Remove node, replace with rightmost leaf (to maintain completeness)
+1. Remove node, replace with rightmost leaf in the last level of the heap (to maintain completeness)
    - but this breaks our ordering property!
 2. (For min heap) swap value with smallest child
    - (For max heap) swap value with largest
