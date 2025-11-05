@@ -87,4 +87,60 @@ What are the cases?
 
 Could also do with left child. Check that both ways maintain the BST property.
 
+# Heaps
+
+Special case of complete binary trees: all levels full except last, last level all nodes are far left
+
+Properties:
+
+- complete
+- binary
+- max-heap: all children are less than their parents
+- min-heap: all children are greater than their parents
+
+## Adding elements
+
+1. Add new element to bottom of tree, in the first available place to maintain completeness
+2. Restore heap ordering: new element is shifted up tree to proper place
+   - Swap element with parent if out of order
+   - Continue until parent has proper ordering
+
+This process is called "percolating" / "bubbling" / "sifting" / "heapify-ing"
+
+## Removing elements
+
+1. Remove node, replace with rightmost leaf (to maintain completeness)
+   - but this breaks our ordering property!
+2. (For min heap) swap value with smallest child
+   - (For max heap) swap value with largest
+
+## Array representation
+
+Since we know we have a complete tree, with careful indexing we can implement a heap in an array
+
+Process:
+
+```
+    Let index of root = 1
+    For any node n at index i:
+        index of n.left = 2i
+        index of n.right = 2i+1
+        Parent index of n?
+            floor of i/2
+    If array runs out of space, we can copy data into larger array
+```
+
+## Heap Sort
+
+    Basic idea: add each element to heap, then remove top element N times
+    
+    In-place solution: maintain max-heap in array, build sorted array from back to front of array
+    
+    Algorithm performance? O(n lg n)
+    
+    Unstable, in-place
+    
+    Good bound on worst-case scenarios, makes it well suited for real-time aapplications
+    
+    Not easily parallelizable
 
