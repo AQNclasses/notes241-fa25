@@ -182,7 +182,19 @@ value in the right subtree)
 ### Left rotate
 
 ![Before left rotation.](/figs/left-before.png)
-
 ![After left rotation.](/figs/left-after.png)
 
+### Right rotate
 
+![Before right rotation.](/figs/right-before.png)
+![After right rotation.](/figs/right-after.png)
+
+### Left-right
+
+![Step 1 of a left-right rotation.](/figs/left-right-step1.png)
+![Step 2 of a left-right rotation.](/figs/left-right-step2.png)
+
+### Right-left
+
+![Step 1 of a right-left rotation.](/figs/right-left-step1.png)
+![Step 2 of a right-left rotation.](/figs/right-left-step2.png)
