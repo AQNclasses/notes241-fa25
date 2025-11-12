@@ -121,26 +121,68 @@ Since we know we have a complete tree, with careful indexing we can implement a 
 Process:
 
 ```
-    Let index of root = 1
-    For any node n at index i:
-        index of n.left = 2i
-        index of n.right = 2i+1
-        Parent index of n?
-            floor of i/2
-    If array runs out of space, we can copy data into larger array
+Let index of root = 1
+For any node n at index i:
+    index of n.left = 2i
+    index of n.right = 2i+1
+    Parent index of n?
+        floor of i/2
+If array runs out of space, we can copy data into larger array
 ```
 
 ## Heap Sort
 
-    Basic idea: add each element to heap, then remove top element N times
-    
-    In-place solution: maintain max-heap in array, build sorted array from back to front of array
-    
-    Algorithm performance? O(n lg n)
-    
-    Unstable, in-place
-    
-    Good bound on worst-case scenarios, makes it well suited for real-time aapplications
-    
-    Not easily parallelizable
+Basic idea: add each element to heap, then remove top element N times
+
+In-place solution: maintain max-heap in array, build sorted array from back to front of array
+
+Algorithm performance?
+
+- O(n lg n)
+- Unstable, in-place
+- Good bound on worst-case scenarios, makes it well suited for real-time aapplications
+- Not easily parallelizable
+
+# AVL Trees
+
+AVL trees are self-balancing binary search trees. They maintain the invariant
+that the left child of a node is less than or equal to the parent, and the right
+child is greater than or equal to the parent.
+
+## Balance Factor
+
+The balance factor of a node is B = (height of left subtree) - (height of right
+subtree). The height of an empty tree is -1. The height of a single node is 0.
+
+AVL trees maintain that $abs(B) \leq 1$, so B can be from the set $\{-1, 0,
+1\}$. They do this through fancier add and remove methods.
+
+## Insert
+
+Inserting a value into an AVL tree begins just like a normal BST: starting at
+the root, you search for the location that the node would be added.
+
+Then, you recalculate all the balance factors, and rotate the tree if needed.
+
+## Delete
+
+Three cases:
+
+1. removing leaf node: just remove leaf node
+2. removing node with one child: remove node, replace with child.
+3. removing node with two children:
+   a. Find in-order successor `w` of the node to be deleted (node with minimum
+value in the right subtree)
+   b. replace the node to be deleted with `w`.
+   c. remove leaf node `w`.
+   d. update balance factors, rebalance if needed.
+
+## Rotations and Rebalancing
+
+### Left rotate
+
+![figs/left-before.png]()
+
+![figs/left-after.png]()
+
 
