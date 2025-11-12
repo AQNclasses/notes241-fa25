@@ -181,8 +181,8 @@ value in the right subtree)
 
 ### Left rotate
 
-![Before left rotation.](figs/left-before.png)
+![Before left rotation.](/figs/left-before.png)
 
-![After left rotation.](figs/left-after.png)
+![After left rotation.](/figs/left-after.png)
 
 
