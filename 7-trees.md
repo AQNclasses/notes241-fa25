@@ -171,11 +171,10 @@ Three cases:
 1. removing leaf node: just remove leaf node
 2. removing node with one child: remove node, replace with child.
 3. removing node with two children:
-   a. Find in-order successor `w` of the node to be deleted (node with minimum
-value in the right subtree)
-   b. replace the node to be deleted with `w`.
-   c. remove leaf node `w`.
-   d. update balance factors, rebalance if needed.
+    a. Find in-order successor `w` of the node to be deleted (node with minimum value in the right subtree)
+    b. replace the node to be deleted with `w`.
+    c. remove leaf node `w`.
+    d. update balance factors, rebalance if needed.
 
 ## Rotations and Rebalancing
 
