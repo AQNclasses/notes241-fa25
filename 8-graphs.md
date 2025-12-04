@@ -154,7 +154,7 @@ DFS(G, n):
   order they were first visited) or post-order (order they were last visited)
 
 
-## Shortest Paths
+## Shortest Paths: Dijkstra's Algorithm
 
 Beyond search (verifying if a path exists), we sometimes want to find the shortest path from A to B in a graph. In this case, we will consider weighted graphs.
 
