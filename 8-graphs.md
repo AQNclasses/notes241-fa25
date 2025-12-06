@@ -163,36 +163,39 @@ Beyond search (verifying if a path exists), we sometimes want to find the shorte
 
 ### Initialization
 
-- Create a set of all *unvisited* nodes. Call this set $U$.
+- Create a priority queue of all *unprocessed* nodes. Call this $U$. Start with the priority queue empty.
 - Assign a *distance* $dist$ to each node in the graph.
   - Assign $dist=0$ for the start node.
   - Assign $dist=\infty$ for all other nodes.
-- set the start node to the **current node**, $c$, and remove it from $U$.
+- set the start node to the **current node**, $c$, and add it to $U$.
+- create a way to track when nodes have been fully processed.
 
 ### Iteration
 
 While $U$ is not empty:
 
-- for (n : neighbors(current node))
+```
+1. set current node $c$ to node in $U$ with minimum $dist$ (remove from Priority Queue), and mark $c$ as processed
+2. for (n : neighbors(current node))
   - let e(c, n) be the edge weight between c and n
-  - update $dist(n)$: set to $min (dist(n), dist(c) + e(c,n))$
-     - case where $dist(n)$ is smaller: path to $n$ through $c$ is not the shortest
-     - case where $dist(c) + e(c,n)$ is smaller: shortest path to n found so far
-- after processing all neighbors, mark $c$ as visited (remove from $U$)
-- set current node $c$ to node in $U$ with minimum $dist$
+  - if n has not been processed:
+    - update $dist(n)$: set to $min (dist(n), dist(c) + e(c,n))$
+    // if $dist(n)$ is smaller: path to $n$ through $c$ is not the shortest
+    // if $dist(c) + e(c,n)$ is smaller: shortest path to n found so far (need to update $prev$ if using)
+    - add $n$ to $U$
+```
 
 ### Run time?
 
-- opportunity for optimization: min-heap, sorted on $dist$
 - have to update min-heap every time we update $dist$
-- multiple solutions, most performant (runtime) to add multiple copies of nodes to $U$ and maintain separate set of unvisited nodes
+- multiple ways to handle updating the min-heap. The most performant (in terms of runtime) is to add multiple copies of nodes to $U$ and maintain separate set of unprocessed nodes. Then, you will ignore nodes when re-visiting them, but the min-heap will handle sorting every time you add a new node.
 
 ### Extracting path
 
-- build shortest-path "tree" while computing
+- We build shortest-path "tree" while computing
   - will not be tree if there are multiple same-cost shortest paths to a node
-- can explicitly build tree:
-  - add $c$ to tree when we remove from $U$
-  - connect to neighbors already in tree such that $d(n) + e(c,n) = d(c)$
-- can also make a pointer array $prev$
+- We can explicitly build shortest-path graph:
+  - add $c$ to a new graph when we remove from $U$
+  - connect to neighbors already in graph such that $d(n) + e(c,n) = d(c)$
+- can also make a pointer array $prev$ - this is easier and takes less space
   - update $prev(n) = c$ every time we update $d(n)$
