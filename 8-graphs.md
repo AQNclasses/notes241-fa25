@@ -188,7 +188,8 @@ While $U$ is not empty:
 ### Run time?
 
 - have to update min-heap every time we update $dist$
-- multiple ways to handle updating the min-heap. The most performant (in terms of runtime) is to add multiple copies of nodes to $U$ and maintain separate set of unprocessed nodes. Then, you will ignore nodes when re-visiting them, but the min-heap will handle sorting every time you add a new node.
+- multiple ways to handle updating the min-heap. The most performant (in terms of runtime) is to add multiple copies of nodes to $U$ and maintain separate set of unprocessed nodes. Then, you will ignore nodes when re-visiting them, but the min-heap will handle sorting every time you add a new node (in O(log n) time for each node). This means you may pop nodes off the heap that have already been processed, so you should check for that condition as well.
+- other way of handling the min-heap: find and delete node object, update distance, and re-add node object. This takes O(n) time.
 
 ### Extracting path
 
@@ -197,5 +198,5 @@ While $U$ is not empty:
 - We can explicitly build shortest-path graph:
   - add $c$ to a new graph when we remove from $U$
   - connect to neighbors already in graph such that $d(n) + e(c,n) = d(c)$
-- can also make a pointer array $prev$ - this is easier and takes less space
-  - update $prev(n) = c$ every time we update $d(n)$
+- can also make a pointer $prev$ either in the node class or in a separate array - this is easier and takes less space
+  - update $prev(n) = c$ every time we update $d(n)$ while looking at neighbors of $c$
